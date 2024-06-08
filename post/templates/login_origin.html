@@ -1,0 +1,107 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>登录</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+   background-image: url("../../static/post/images/banner.jpg");
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+   text-align: center;
+   padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+   .login-form {
+      max-width: 400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color:#6C6868;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color:white;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .form-submit {
+       text-align: center;
+       margin-top: 20px;
+    }
+
+    .form-submit button {
+     width:110%;
+     padding: 10px 20px;
+     background-color: #444444;
+     color: white;
+     border: 1px solid white;
+     border-radius: 3px;
+     cursor: pointer;
+    }
+    .form-submit button:hover {
+  background-color: #45a049;
+}
+    .register-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+    .register-link a {
+  color: white;
+  text-decoration: none;
+}
+  </style>
+
+</head>
+<body>
+<div id="stars-container">
+  <h1>登录</h1>
+  <div class="login-form">
+    <form method="post">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+        </div>
+      {% endfor %}
+      <div class="form-submit">
+        <button type="submit">登录</button>
+      </div>
+    </form>
+  </div>
+
+   <div class="register-link">
+   <p>还没有账户？<a href="/register">点击这里注册</a></p>
+  </div>
+</div>
+</body>
+</html>

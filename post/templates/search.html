@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>find</title>
+<link rel="stylesheet" type="text/css" href="{% static "css/style_show.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id="container">
+    <div id="wrap">
+      <header id="header">
+        <div id="banner"></div>
+        <div id="header-outer" class="outer">
+          <div id="header-inner" class="inner">
+            <nav id="main-nav">
+                <a class="main-nav-link" href="{% url "choose" %}">首页</a>
+                {% comment %} <a class="main-nav-link" href="/archive/">归档</a> {% endcomment %}
+                <a class="main-nav-link" href="http://hello123.pythonanywhere.com/aboutme" target="_blank">关于</a>
+                <a class="main-nav-link" href="/post">返回我的主页</a>
+                {% comment %} <a class="main-nav-link" href="/admin">个人管理</a> {% endcomment %}
+                <a class="main-nav-link" >{% block flag %}{% endblock %}</a>
+            </nav>
+        
+          </div>
+        </div>
+      </header>
+
+  <!--搜索框-->
+
+<div class="outer">
+    <p class="bold-black-text">思源·博客</p>
+    <br>
+  {% block search %}
+  <form method="POST" action="{% url 'search' %}" style="display: flex; flex-wrap: wrap; gap: 10px;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" style="background-color: #3498db; color: #fff; padding: 10px 15px; border: none; cursor: pointer; transition: background-color 0.3s;"
+    onmouseover="this.style.backgroundColor='#2980b9'" onmouseout="this.style.backgroundColor='#3498db'">搜索</button>
+  </form>
+  {% endblock %}
+
+
+  {% comment %} {% block search %}
+  <form method="POST" action="{% url 'search' %}" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" >搜索</button>
+  </form>
+  {% endblock %} {% endcomment %}
+
+
+
+
+  {% if recent_posts  %}
+  <p class="bold-black-text2">最近帖子</p>
+  <div class="card-container">
+    {% for post in recent_posts %}
+    <div class="card">
+      <div class="card-header">
+         <a href="{% url 'post_detail' post.id %}" style="text-decoration: none;">{{ post.title }} by {{ post.user }}</a>
+      </div>
+      <div class="card-body">
+        <p>{{ post.desc }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% elif results %}
+  <p class="bold-black-text2">搜索结果</p>
+  <br>
+
+  <div class="card-container">
+    {% for post in results %}
+    <div class="card">
+      <div class="card-header">
+         <a href="{% url 'post_detail' post.id %}" style="text-decoration: none;">{{ post.title }} by {{ post.user }}</a>
+      </div>
+      <div class="card-body">
+        <p>{{ post.desc }}</p>
+      </div>
+    </div>
+    {% endfor %}                                
+  </div>
+  {% else %}
+    <p>没有找到匹配的结果。</p>
+  {% endif %}
+
+
+               
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>收款码</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .container img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="{% static 'images/tips.jpg' %}" alt="收款码">
+    <p>感谢您的支持！</p>
+  </div>
+</body>
+</html>

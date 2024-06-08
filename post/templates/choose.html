@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>思源博客</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'post/assets/css/main.css' %}" />
+		{% comment %} <link rel="stylesheet" href="assets/css/main.css" /> {% endcomment %}
+		<noscript><link rel="stylesheet" href="{% static 'post/assets/css/noscript.css' %}" /></noscript>
+		<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=6539ccbe4fde7100198bf760&product=inline-share-buttons&source=platform" async="async"></script>
+	</head>
+	<body class="index is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1 id="logo"><a>思源博客 <span>by GROUP 5</span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="#">欢迎</a></li>
+							<li class="submenu">
+								<a href="#">菜单</a>
+								<ul>
+									<li><a href="/aboutme">关于我们</a></li>
+									<li><a href="{% url 'login' %}">登录</a></li>
+									<li><a href="{% url 'logout' %}">注册</a></li>
+									<li><a href="#">option 4</a></li>
+								</ul>
+							</li>
+							<li><a href="/login" >登录</a></li>
+							<li><a href="/register">注册</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+					<div class="inner">
+
+						<header>
+							<h2>思源博客</h2>
+						</header>
+						<p><strong>思源博客</strong>,是一个专注于分享各种领域知识
+						<br />
+						启发思考和促进交流的平台。这个博客旨在为读者提供丰富多彩的内容
+						<br />
+						涵盖技术、文化、生活方式、学习、创意和更多领域的主题。
+						<br />
+						</a></p>
+						<footer>
+							<ul class="buttons stacked">
+								<li><a href="{% url "search" %}" class="button fit scrolly">进入博客</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+
+			<!-- Main -->
+				<article id="main">
+
+					<header class="special container">
+						<span class="icon solid fa-chart-bar"></span>
+						<h2>在这个信息爆炸的时代 <strong>思源博客</strong> 致力于提供高质量、有深度的内容
+						<br />
+						为读者呈现不同角度的见解和知识</h2>
+
+						<br />
+						我们相信每篇博文都是一次与读者分享的对话，为大家提供启发、启示和认知提升。
+						<br />
+					</header>
+
+
+						<section class="wrapper style2 container special-alt">
+							<div class="row gtr-50">
+								<div class="col-8 col-12-narrower">
+
+									<header>
+										<h2>我们的内容涵盖多个领域，包括但不限于：</h2>
+									</header>
+									<p><strong>科技与创新：</strong>探讨最新科技趋势、创新理念和技术突破。
+									<br />
+										<strong>文化与艺术：</strong>介绍不同文化背景下的艺术、传统和当代文化现象。
+									<br />
+										<strong>学习与教育：</strong>分享学习方法、教育资源和个人成长经验。
+									<br />
+										<strong>生活方式：</strong>提供健康、心理健康、旅行和生活技巧等内容。
+									<br />
+										<strong>社会问题：</strong>关注社会议题、可持续发展、环境保护等内容。
+									</p>
+									<footer>
+										<ul class="buttons">
+											<li><a href="#" class="button">为什么选择我们</a></li>
+										</ul>
+									</footer>
+
+								</div>
+								<div class="col-4 col-12-narrower imp-narrower">
+
+									<ul class="featured-icons">
+										<li><span class="icon fa-clock"><span class="label">Feature 1</span></span></li>
+										<li><span class="icon solid fa-volume-up"><span class="label">Feature 2</span></span></li>
+										<li><span class="icon solid fa-laptop"><span class="label">Feature 3</span></span></li>
+										<li><span class="icon solid fa-inbox"><span class="label">Feature 4</span></span></li>
+										<li><span class="icon solid fa-lock"><span class="label">Feature 5</span></span></li>
+										<li><span class="icon solid fa-cog"><span class="label">Feature 6</span></span></li>
+									</ul>
+
+								</div>
+							</div>
+						</section>
+
+
+						<section class="wrapper style1 container special">
+							<div class="row">
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-check"></span>
+										<header>
+											<h3>丰富多彩的内容</h3>
+										</header>
+										<p>我们致力于为读者提供多样化的主题和观点。</p>
+									</section>
+
+								</div>
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-check"></span>
+										<header>
+											<h3>专业见解</h3>
+										</header>
+										<p>我们的作者团队由各领域专业人士和领域专家组成，为您带来深入的见解和独特的观点。</p>
+									</section>
+
+								</div>
+								<div class="col-4 col-12-narrower">
+
+									<section>
+										<span class="icon solid featured fa-check"></span>
+										<header>
+											<h3>交流互动</h3>
+										</header>
+										<p>我们鼓励读者参与讨论，分享他们的想法和观点。每篇博文都是一个开始，为更广泛的讨论铺平道路。</p>
+									</section>
+
+								</div>
+							</div>
+						</section>
+
+
+						<section class="wrapper style3 container special">
+
+							<header class="major">
+								<h2>「思源博客」将为您提供独特的体验和价值</h2>
+							</header>
+
+							<div class="row">
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<a href="#" class="image featured"><img src="{% static 'post/images/pic01.jpg' %}" alt="" /></a>
+										<header>
+											<h3>多元的内容</h3>
+										</header>
+										<p>我们的博客涵盖了各种主题，包括科学、技术、文化、艺术、健康、生活方式和更多。无论您对什么感兴趣，都能在这里找到相关的文章和观点。</p>
+									</section>
+
+								</div>
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<a href="#" class="image featured"><img src="{% static 'post/images/pic02.jpg' %}" alt="" /></a>
+										<header>
+											<h3>专业作者</h3>
+										</header>
+										<p>我们的团队由来自各个领域的专业作者和博主组成，他们在各自的领域内积累了丰富的知识和经验，将为您提供高质量的内容。</p>
+									</section>
+
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<a href="#" class="image featured"><img src="{% static 'post/images/pic03.jpg' %}" alt="" /></a>
+										<header>
+											<h3>互动交流</h3>
+										</header>
+										<p>我们鼓励读者积极参与，留下您宝贵的意见和评论。您的反馈将帮助我们不断改进和扩展我们的内容。</p>
+									</section>
+
+								</div>
+								<div class="col-6 col-12-narrower">
+
+									<section>
+										<a href="#" class="image featured"><img src="{% static 'post/images/pic04.jpg' %}" alt="" /></a>
+										<header>
+											<h3>灵感与启发</h3>
+										</header>
+										<p>思源博客的目标是激发思维，为读者提供新的观点和创意。我们相信，知识和思考的力量可以改变世界。</p>
+									</section>
+
+								</div>
+							</div>
+
+							<footer class="major">
+								<ul class="buttons">
+									<li><a href="/aboutme" class="button">了解更多</a></li>
+								</ul>
+							</footer>
+
+						</section>
+
+				</article>
+
+			<!-- CTA -->
+			<section id="cta">
+
+				<header>
+					<h2>订阅我们的博客</h2>
+					<p>我们期待着与您一同旅程，一同探索未知的世界。</p>
+				</header>
+				<footer>
+					<ul class="buttons">
+						<li><a href="/tips" class="button primary">支持我们</a></li>
+						<li><a href="#" class="button">回到首页</a></li>
+					</ul>
+				</footer>
+
+			</section>
+			<!-- Footer -->
+				<footer id="footer">
+
+					<div class="sharethis-inline-share-buttons"> </div>
+					<br>
+
+					<ul class="copyright">
+						<li>&copy; 思源博客</li><li>Design: <a href="http://html5up.net">group5</a></li>
+					</ul>
+
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'post/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'post/assets/js/jquery.dropotron.min.js' %}"></script>
+			<script src="{% static 'post/assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'post/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'post/assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'post/assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'post/assets/js/util.js' %}"></script>
+			<script src="{% static 'post/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

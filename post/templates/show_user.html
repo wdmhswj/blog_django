@@ -1,0 +1,105 @@
+{% extends 'show_base.html' %}
+{% block title %}首页{% endblock %}
+{% load mymarkdown %}
+
+{% block main_nav %}
+    <nav id="main-nav">
+        <a class="main-nav-link" href="{% url "choose" %}">首页</a>
+        <a class="main-nav-link">{{username}}的个人主页</a>
+        {% comment %} <a class="main-nav-link" href="/post/archive/">归档</a> {% endcomment %}
+        <a class="main-nav-link" href="/aboutme" target="_blank">关于</a>
+        <a class="main-nav-link" href="/post">我的主页</a>
+        
+    </nav>
+{% endblock %}
+
+{% block main %}
+
+    <div id="main">
+
+        {% for post in postList %}
+            <article class="article article-type-post">
+            <div class="article-meta">
+                <a class="article-date">
+                    <time>{{ post.created|date:'Y-m-d H:i:s' }}</time>
+                </a>
+                <div class="article-category">
+                    <a class="article-category-link" href="#" target="_blank">{{ post.category.cname }}</a>
+                </div>
+                
+            </div>
+            <div class="article-inner">
+                <header class="article-header">
+                    <h1 itemprop="name">
+                        <a class="article-title" href="#" >{{ post.title }}</a>
+                    </h1>
+                </header>
+                <div class="article-entry" itemprop="articleBody">
+                    <h2>前言</h2>
+                    <hr>
+                    {{ post.desc }}
+
+
+                    <p class="article-more-link">
+                        <a href="/show_post/{{ post.id }}" >阅读全文</a>
+                    </p>
+                </div>
+                <footer class="article-footer">
+                    <ul class="article-tag-list">
+
+                        {% for tag in post.tag.all %}
+                            <li class="article-tag-list-item">
+                                <a class="article-tag-list-link" href="#">{{ tag.tname }}</a>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+
+                    <div class="sharethis-inline-share-buttons"> </div>
+
+                </footer>
+            </div>
+        </article>
+        {% endfor %}
+
+
+
+
+
+
+
+        <nav id="page-nav">
+
+                {% if postList.has_previous %}
+                    <a class="extend prev" rel="next" href="/post/page/{{ postList.previous_page_number }}">« Prev</a>
+                {% endif %}
+
+                {% for page in page_list %}
+                    {% if currentNum == page %}
+                        <span class="page-number current">{{ page }}</span>
+                    {% else %}
+                        <a class="page-number" href="/post/page/{{ page }}">{{ page }}</a>
+                    {% endif %}
+
+
+                {% endfor %}
+
+
+
+
+
+                {% if postList.has_next %}
+                    <a class="extend next" rel="next" href="/post/page/{{ postList.next_page_number }}">Next »</a>
+                {% endif %}
+
+
+
+
+
+        </nav>
+
+
+    </div>
+
+
+{% endblock %}

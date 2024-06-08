@@ -1,0 +1,26 @@
+{% load static %}
+<header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+          <a class="main-nav-link" href="/">首页</a>
+          <a class="main-nav-link" href="/post">个人主页</a>
+          <a class="main-nav-link" href="/post/archive/">归档</a>
+          <a class="main-nav-link" href="/aboutme" >关于</a>
+          <a class="main-nav-link" >欢迎你{{user}}</a>
+          <a class="main-nav-link" href="/admin">个人管理</a>
+          <a class="main-nav-link" href="/create_post" >添加博客</a>
+          <a class="main-nav-link" href="{% url "logout" %}">退出登录</a>
+      </nav>
+      <div class="d1">
+        <form method="get" action="/search/">
+          {% csrf_token %}
+          <input  type="text" name="q" placeholder="搜索">
+        </form>
+      </div>
+      
+
+    </div>
+  </div>
+</header>

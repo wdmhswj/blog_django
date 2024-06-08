@@ -1,0 +1,65 @@
+{% extends 'show_base.html' %}
+{% load mymarkdown %}
+
+
+{% block title %}详情页面{% endblock %}
+
+{% block main_nav %}
+    <nav id="main-nav">
+        <a class="main-nav-link" href="{% url "choose" %}">首页</a>
+        <a class="main-nav-link" href="{% url "show_user" post_obj.user.id 1 %}">{{post_obj.user.username}}的主页</a>
+        {% comment %} <a class="main-nav-link" href="/post/archive/">归档</a> {% endcomment %}
+        <a class="main-nav-link" href="/aboutme" target="_blank">关于</a>
+        {% comment %} <a class="main-nav-link" href="/admin">个人管理</a> {% endcomment %}
+        {% comment %} <a class="main-nav-link" >欢迎你{{user}}</a> {% endcomment %}
+        <a class="main-nav-link" href="/post">我的主页</a>
+    </nav>
+{% endblock %}
+
+{% block main %}
+{% load mymarkdown %}
+    <div id="main">
+        <article class="article article-type-post">
+            <div class="article-meta">
+              <a class="article-date">
+                <time>{{ post_obj.created|date:'Y-m-d H:i:s' }}</time>
+              </a>
+              <div class="article-category">
+                <a class="article-category-link" href="#" target="_blank">{{ post_obj.category.cname }}</a>
+              </div>
+
+            </div>
+            <div class="article-inner">
+                <header class="article-header">
+                    <h1 itemprop="name">
+                        <a class="article-title">{{ post_obj.title }}</a>
+                    </h1>
+                </header>
+                <div class="article-entry" itemprop="articleBody">
+                    <h2>前言</h2>
+                        {{ post_obj.desc }}
+                    <hr>
+                        {{ post_obj.content|md|safe}}
+                </div>
+            </div>
+            
+            <footer class="article-footer">
+
+                <ul class="article-tag-list">
+
+                    {% for tag in post_obj.tag.all %}
+                        <li class="article-tag-list-item">
+                            <a class="article-tag-list-link" href="#">{{ tag.tname }}</a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+
+                <div class="sharethis-inline-share-buttons"> </div>
+            </footer>
+        </article>
+    </div>
+
+
+
+{% endblock %}

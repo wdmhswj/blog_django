@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-color: #EEEEEE; /* 更改背景颜色 */
+            font-weight: bold;
+            color: #595B5D;
+        }
+        h2 {
+            font-weight: bold;
+            color: #595B5D;
+        }
+        .header h2 {
+            color: white;
+        }
+        .form-group label, .form-group input, .form-group textarea, .form-group select {
+            color: #323232 !important;
+        }
+        button.btn-primary {
+            color: white !important;
+            margin-top: -20px;
+        }
+        .header, .footer {
+            transition: transform 0.5s ease-out;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        .header {
+            background: linear-gradient(to left, #493852, #888A8B);
+            color: white;
+            padding: 5px;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            height: 50px;
+        }
+        .footer {
+            background: linear-gradient(to left, #888A8B, #493852);
+            color: white;
+            padding: 5px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            height: 50px;
+        }
+        .hidden-footer {
+            transform: translateY(100%);
+        }
+        .toolbar {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <script>
+    tinymce.init({
+      selector: '#mytextarea',
+      plugins: 'link image emoticons',
+      toolbar: 'fontsizeselect | underline italic | fontselect | image emoticons'
+    });
+    </script>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+</head>
+<body>
+
+<div class="header">
+    <h2>My Website Header</h2>
+</div>
+
+<div class="container mt-5">
+    <h2>Create New Post</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% load widget_tweaks %}
+
+        <div class="form-group">
+            <label for="{{ form.title.id_for_label }}">Title:</label>
+            {{ form.title|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.desc.id_for_label }}">Description:</label>
+            {{ form.desc|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.content.id_for_label }}">Content:</label>
+            <div id="content" class="form-control" contenteditable="true" style="height: 200px; border: 1px solid #ccc;"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="{{ form.category.id_for_label }}">Category:</label>
+            {{ form.category|add_class:"form-control" }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.tag.id_for_label }}">Tags:</label>
+            {{ form.tag|add_class:"form-control" }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Create Post</button>
+    </form>
+</div>
+
+<div class="footer">
+    <p>&copy; 2023 My Website Footer</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        var lastScrollTop = 0;
+
+        $(window).scroll(function () {
+            var currentScroll = $(this).scrollTop();
+
+            if (currentScroll > lastScrollTop) {
+                $('.footer').addClass('hidden-footer');
+            } else {
+                $('.footer').removeClass('hidden-footer');
+            }
+
+            lastScrollTop = currentScroll;
+        });
+    });
+
+    function chooseImage() {
+        var url = prompt('请输入图片 URL:');
+        if (url) {
+            var img = '<img src="' + url + '" alt="Image" style="max-width:100%;">';
+            document.execCommand('insertHTML', false, img);
+        }
+    }
+
+    function insertEmoji(emoji) {
+        document.execCommand('insertText', false, emoji);
+    }
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+        var content = document.querySelector('#content').innerHTML;
+        var textarea = document.createElement('textarea');
+        textarea.name = 'content';
+        textarea.style.display = 'none';
+        textarea.value = content;
+        this.appendChild(textarea);
+    });
+</script>
+</body>
+</html>

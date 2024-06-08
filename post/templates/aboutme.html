@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>团队成员信息</title>
+  <style>
+    .member {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>团队成员信息</h1>
+
+  <div class="member">
+    <img src="{% static 'images/pic01.jpg' %}" alt="成员1">
+    <div>
+      <h2>陈梓轩</h2>
+      <p>上海交通大学</p>
+    </div>
+  </div>
+
+  <div class="member">
+    <img src="{% static 'images/pic02.jpg' %}" alt="成员2">
+    <div>
+      <h2>丁华威</h2>
+      <p>上海交通大学</p>
+    </div>
+  </div>
+
+  <div class="member">
+    <img src="{% static 'images/pic03.jpg' %}" alt="成员3">
+    <div>
+      <h2>郑祥</h2>
+      <p>上海交通大学</p>
+    </div>
+  </div>
+
+  <div class="member">
+    <img src="{% static 'images/pic03.jpg' %}" alt="成员4">
+    <div>
+      <h2>符景乐</h2>
+      <p>上海交通大学</p>
+    </div>
+  </div>
+
+  <div class="member">
+    <img src="{% static 'images/pic04.jpg' %}" alt="成员5">
+    <div>
+      <h2>苏世桢</h2>
+      <p>上海交通大学</p>
+    </div>
+  </div>
+</body>
+</html>

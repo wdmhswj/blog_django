@@ -1,0 +1,128 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 590, in spawn_worker
+Traceback (most recent call last):
+    sys.exit(0)  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 590, in spawn_worker
+
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    sys.exit(0)
+SystemExit: 0
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 202, in run
+    self.spawn_workers()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 622, in spawn_workers
+    self.manage_workers()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_worker()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 605, in spawn_worker
+    self.spawn_workers()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 622, in spawn_workers
+    self.log.info("Worker exiting (pid: %s)", worker.pid)
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/glogging.py", line 264, in info
+    self.spawn_worker()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 605, in spawn_worker
+    self.log.info("Worker exiting (pid: %s)", worker.pid)
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/glogging.py", line 264, in info
+        self.error_log.info(msg, *args, **kwargs)
+self.error_log.info(msg, *args, **kwargs)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1624, in _log
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1624, in _log
+    self.handle(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1634, in handle
+    self.callHandlers(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1696, in callHandlers
+    hdlr.handle(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 968, in handle
+    self.emit(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1216, in emit
+    self.handle(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1634, in handle
+    self.stream = self._open()
+  File "/usr/lib/python3.10/logging/__init__.py", line 1201, in _open
+        return open_func(self.baseFilename, self.mode,self.callHandlers(record)
+
+FileNotFoundError  File "/usr/lib/python3.10/logging/__init__.py", line 1696, in callHandlers
+: [Errno 2] No such file or directory: '/root/workspace/blog/log/gunicorn.error.log'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/app/base.py", line 231, in run
+    hdlr.handle(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 968, in handle
+    super().run()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 233, in run
+    self.emit(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1216, in emit
+    self.log.info("Unhandled exception in main loop",
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/glogging.py", line 264, in info
+    self.error_log.info(msg, *args, **kwargs)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+    self.stream = self._open()
+  File "/usr/lib/python3.10/logging/__init__.py", line 1201, in _open
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1624, in _log
+    return open_func(self.baseFilename, self.mode,
+FileNotFoundError: [Errno 2] No such file or directory: '/root/workspace/blog/log/gunicorn.error.log'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/app/base.py", line 231, in run
+    self.handle(record)
+      File "/usr/lib/python3.10/logging/__init__.py", line 1634, in handle
+super().run()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/arbiter.py", line 233, in run
+    self.log.info("Unhandled exception in main loop",
+  File "/usr/local/lib/python3.10/dist-packages/gunicorn/glogging.py", line 264, in info
+    self.callHandlers(record)    self.error_log.info(msg, *args, **kwargs)
+
+  File "/usr/lib/python3.10/logging/__init__.py", line 1477, in info
+  File "/usr/lib/python3.10/logging/__init__.py", line 1696, in callHandlers
+    self._log(INFO, msg, args, **kwargs)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1624, in _log
+    hdlr.handle(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 968, in handle
+    self.emit(record)
+      File "/usr/lib/python3.10/logging/__init__.py", line 1216, in emit
+self.handle(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1634, in handle
+    self.stream = self._open()
+  File "/usr/lib/python3.10/logging/__init__.py", line 1201, in _open
+    self.callHandlers(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1696, in callHandlers
+    return open_func(self.baseFilename, self.mode,
+FileNotFoundError: [Errno 2] No such file or directory: '/root/workspace/blog/log/gunicorn.error.log'
+    hdlr.handle(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 968, in handle
+    self.emit(record)
+  File "/usr/lib/python3.10/logging/__init__.py", line 1216, in emit
+    self.stream = self._open()
+  File "/usr/lib/python3.10/logging/__init__.py", line 1201, in _open
+    return open_func(self.baseFilename, self.mode,
+FileNotFoundError: [Errno 2] No such file or directory: '/root/workspace/blog/log/gunicorn.error.log'

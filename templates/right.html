@@ -1,0 +1,84 @@
+<aside id="sidebar">
+     <!--分类-->
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list">
+        {% for rc in r_cate_post %}
+            <li class="category-list-item">
+              <a class="category-list-link" href="/post/category/{{ rc.category }}">{{ rc.category__cname }}</a>
+              <span class="category-list-count">{{ rc.c }}</span>
+            </li>
+        {% endfor %}
+
+
+
+
+
+      </ul>
+      </div>
+  </div>
+
+     <!--归档-->
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list">
+        {% for rf in r_file_post %}
+            <li class="archive-list-item">
+              <a class="archive-list-link" href="/post/archive/{{ rf.0|date:'Y' }}/{{ rf.0|date:'m' }}">{{ rf.0|date:'Y' }}年{{ rf.0|date:'m' }}月</a>
+              <span class="archive-list-count">{{ rf.1 }}</span>
+            </li>
+        {% endfor %}
+
+
+
+
+      </ul>
+    </div>
+  </div>
+
+    <!--近期文章-->
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+
+        {% for rr in r_recent_post %}
+            <li>
+                <a href="/post/{{ rr.id }}" target="_blank">{{ rr.title|truncatechars:'10' }}</a>
+            </li>
+        {% endfor %}
+
+
+
+
+
+
+
+      </ul>
+    </div>
+  </div>
+  <div class="widget-wrap">
+    <h3 class="widget-title">组内成员</h3>
+    <div class="widget">
+      <ul>
+          <li>
+            <a href="http://www.bjsxt.com/" target="_blank">陈梓轩</a>
+          </li>
+          <li>
+            <a href="http://www.sxt.cn/" target="_blank">丁华威</a>
+          </li>
+          <li>
+            <a href="http://www.bjsxt.com/" target="_blank">郑祥</a>
+          </li>
+          <li>
+            <a href="http://www.bjsxt.com/" target="_blank">符景乐</a>
+          </li>
+          <li>
+            <a href="http://www.bjsxt.com/" target="_blank">苏世桢</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</aside>
